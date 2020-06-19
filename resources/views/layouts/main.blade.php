@@ -12,7 +12,10 @@
 
   <!-- Bootstrap core CSS -->
   <link href="{{ asset('template/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
+  {{-- Dropzone Css --}}
+  {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
+ --}}
+ <link rel="stylesheet" href="{{ asset('template/css/dropzone.min.css') }}">
   <!-- Custom styles for this template -->
   <link href="{{ asset('template/css/blog-post.css') }}" rel="stylesheet">
 
@@ -100,7 +103,17 @@
 
   <!-- Bootstrap core JavaScript -->
   <script src="{{ asset('template/vendor/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('template/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  
+{{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+ --}}
+   <script src="{{ asset('template/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('template/js/dropzone.min.js') }}"></script>
+  {{-- <script src="{{ asset('template/js/ckeditor.js') }}"></script>
+   --}}  
+   <script src="//cdn.ckeditor.com/4.13.1/full/ckeditor.js"></script>
+
+  @yield('scripts')
+
 
 </body>
 
