@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('layouts/main')
 @section('content')
 <body>
 	<h1 class="justify-content-center text-primary bg-success text-center">User List</h1>

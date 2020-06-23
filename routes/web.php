@@ -70,7 +70,10 @@ Route::get('/', function () {
   Route::resource('categories', 'CategoryController');
   
   Route::resource('posts', 'BlogController');
+  Route::resource('chapters', 'ChapterController');
+  Route::resource('suttas', 'SuttaController');
 
+  Route::resource('books', 'BookController');
   
 Auth::routes();
 

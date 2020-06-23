@@ -6,9 +6,13 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Carbon\Carbon;
-class User extends Authenticatable
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+
+class User extends Authenticatable implements HasMedia
 {
-    use Notifiable;
+    use Notifiable, InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -37,8 +41,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-     public function setCreateAtAttribute($create_at)
+     public function getCreatedAtAttribute($value) {
+        return Carbon::parse($value)->format('d-m-Y');
+    }
+
+    public function getUpdatedAtAttribute($value) {
+        return Carbon::parse($value)->format('d-m-Y');
+    }
+
+    public function registerMediaConversions(Media $media = null) : void
     {
-        $this->attributes['create_at'] = Carbon::parse($create_at);
+        $this->addMediaConversion('thumb')
+            ->width(50)
+            ->height(50);
     }
 }

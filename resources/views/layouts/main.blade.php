@@ -18,6 +18,7 @@
  <link rel="stylesheet" href="{{ asset('template/css/dropzone.min.css') }}">
   <!-- Custom styles for this template -->
   <link href="{{ asset('template/css/blog-post.css') }}" rel="stylesheet">
+  @yield('style')
 
 </head>
 
@@ -40,15 +41,32 @@
           <li class="nav-item">
             <a class="nav-link" href="/categories">Post Category</a>
           </li>
+          
+
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="/userlist">User List</a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="/posts">Media Library</a>
           </li>
+          {{-- <li class="nav-item">
+            <a class="nav-link" href="/chapters">Grammar Chapter</a>
+          </li> --}}
           <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          သဒ္ဒါ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/chapters">Grammar Chapter</a>
+          <a class="dropdown-item" href="/suttas">Suttas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+          <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           User Login
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/login">Login</a>
