@@ -44,7 +44,7 @@
           
 
           <li class="nav-item">
-            <a class="nav-link" href="/userlist">User List</a>
+            <a class="nav-link" href="/users">User List</a>
           </li>
 
           <li class="nav-item">

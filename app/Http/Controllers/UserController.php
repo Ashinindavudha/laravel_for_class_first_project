@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
+use DataTables;
+
 
 class UserController extends Controller
 {
@@ -12,11 +15,31 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $users = User::all();
-        return view('user.index', compact('users'));
-    }
+    Public function index(Request $request)
+   {
+        if(request()->ajax())
+        {
+            //if(isset($request->status){
+                if (isset($request->status)) {
+                    $data = User::where('status', $request->status)->get();
+                }else{
+                $data = User::latest()->get();
+            }
+
+            return datatables()->of($data)
+                               ->addColumn('status', function($row){
+                                 if($row->status == 0){
+                                   return '<span class="badge badge-primary">Active</span>';
+                                 }else{
+                                  return '<span class="badge badge-danger">Deactive</span>';
+                                 }
+                                 })
+                               ->rawColumns(['status'])
+                               ->make(true);
+        }
+
+        return view('users');
+   }
 
     /**
      * Show the form for creating a new resource.

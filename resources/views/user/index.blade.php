@@ -7,6 +7,7 @@
 			<tr>
 				<th>Name</th>
 				<th>Email</th>
+				<th>Profile</th>
 				<th>Created_At</th>
 			</tr>
 		</thead>
@@ -15,6 +16,7 @@
 			<tr>
 				<td>{{ $user->name }}</td>
 				<td>{{ $user->email }}</td>
+				<td> <img src="{{ Auth::user()->getMedia('avatars')->first()->getUrl('thumb') }}"></td>
 				<td>{{ $user->created_at }}</td>
 			</tr>
 		</tbody>

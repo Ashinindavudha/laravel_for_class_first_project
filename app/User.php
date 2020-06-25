@@ -54,5 +54,10 @@ class User extends Authenticatable implements HasMedia
         $this->addMediaConversion('thumb')
             ->width(50)
             ->height(50);
+            //  $this->addMediaConversion('large')
+            // ->width(1536)//Define large image size in pixels
+            // ->height(1536);
     }
+
+    
 }

@@ -74,6 +74,8 @@ Route::get('/', function () {
   Route::resource('suttas', 'SuttaController');
 
   Route::resource('books', 'BookController');
+
+  Route::get('users', ['uses'=>'UserController@index', 'as'=>'users.index']);
   
 Auth::routes();
 
